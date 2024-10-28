@@ -1,46 +1,43 @@
-import { useRef, useEffect } from 'react';
-import Mountain from '../assets/mountain.avif';
-import gsap from 'gsap';
-import WaveHover from '../components/WaveHover';
-
+import { useGSAP } from "@gsap/react";
+import Navbar from "../components/shared/Navbar";
+import gsap from "gsap";
+import Projects from "../components/Projects";
 const Home = () => {
-    const cursorRef = useRef(null);
-    const textRef = useRef(null);
-    useEffect(() => {
-        // Mouse move listener for custom cursor
-        const handleMouseMove = (event) => {
-            gsap.to(textRef.current, {
-                x: event.clientX + 30,
-                y: event.clientY + 30,
-                duration: 0.2,
-                ease: 'power2.out',
-            });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
-
+    useGSAP(() => {
+        const tl = gsap.timeline()
+        tl.fromTo(
+            '.hero-title',
+            { opacity: 0, y: 100 }, // Start off-screen below
+            { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" } // Slide up smoothly
+        )
+            .fromTo(
+                '.hero-title2',
+                { opacity: 0, y: 100 },
+                { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
+                "-=0.8" // Overlap animations slightly
+            )
+            .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
+    })
 
     return (
-        <div className="h-screen relative w-full z-10 overflow-hidden">
-            <img className="h-full w-full object-cover" src={Mountain} alt="Mountain" />
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h1 className="text-5xl font-bold text-gray-300 text-center">
-                    <WaveHover text={'Tapping Into Your'} /> <br /> <WaveHover  text={"Brand's  Unrealized Potential."}/>
-                </h1>
+        <>
+            <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-8">
+                <div className="relative hero-text-container min-h-[calc(100vh-180px)] pt-20">
+                    <div className="text-[152px] leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
+                        <div className="overflow-hidden">
+                            <span className="hero-title block">NOTHING</span>
+                        </div>
+                        <div className="overflow-hidden text-nowrap w-full">
+                            <span className="hero-title2 block">DESIGN STUDIO</span>
+                        </div>
+                    </div>
+                    <div className="w-[30%] mt-16 absolute left-[10%] hero-des">
+                        <p className="text-start text-xl"><span className="px-16"></span> We are a creative studio based in Canada, We build solid brands that needs no introduction at all.</p>
+                    </div>
+                </div>
             </div>
-
-            {/* Custom Cursor */}
-            <div ref={cursorRef} className="fixed top-0 left-0  bg-transparent pointer-events-none z-40"></div>
-            {/* Scroll Down Text */}
-            <div ref={textRef} className="fixed top-0 left-0 text-white text-lg pointer-events-none z-40">
-
-            </div>
-        </div>
+            <Projects />
+        </>
     );
 };
 
