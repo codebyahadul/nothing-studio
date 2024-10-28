@@ -80,7 +80,6 @@ const OurServices = () => {
                     src={Vd}
                 />
             </div>
-
         </div>
     );
 };

@@ -6,3 +6,16 @@ body{
     overflow-x: clip;
     font-family: "Inter", serif;
 }
+
+.marquee-inner {
+    animation: marquee 15s linear infinite; 
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%); /* Start from the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left */
+    }
+}

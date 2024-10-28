@@ -3,6 +3,7 @@ import Navbar from "../components/shared/Navbar";
 import gsap from "gsap";
 import Projects from "../components/Projects";
 import OurServices from "../components/OurServices";
+import OurClients from "../components/OurClients";
 const Home = () => {
     useGSAP(() => {
         const tl = gsap.timeline()
@@ -39,6 +40,7 @@ const Home = () => {
             </div>
             <Projects />
             <OurServices />
+            <OurClients />
         </>
     );
 };
