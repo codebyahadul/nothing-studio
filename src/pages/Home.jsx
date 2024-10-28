@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import Navbar from "../components/shared/Navbar";
 import gsap from "gsap";
 import Projects from "../components/Projects";
+import OurServices from "../components/OurServices";
 const Home = () => {
     useGSAP(() => {
         const tl = gsap.timeline()
@@ -37,6 +38,7 @@ const Home = () => {
                 </div>
             </div>
             <Projects />
+            <OurServices />
         </>
     );
 };
