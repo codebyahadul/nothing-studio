@@ -6,6 +6,7 @@ import img4 from '../assets/img4.avif';
 import img5 from '../assets/img5.avif';
 import img6 from '../assets/img6.avif';
 import gsap from 'gsap';
+import AnimatedButton from './shared/AnimatedButton';
 
 const projects = [
     { img: img1, title: '[Ellos Rebranding]' },
@@ -41,11 +42,7 @@ const Projects = () => {
         <div className="bg-black p-8">
             <div className="flex justify-between items-center text-[#d9d9d9]">
                 <button className="text-xl uppercase">[ FEATURED PROJECTS ]</button>
-                <button className="text-xl text-[#d9d9d9] uppercase hire-us relative overflow-hidden">
-                    <div className="absolute w-full h-full bg-transparent z-50"></div>
-                    <div className="static-text">[ Hire Us ]</div>
-                    <div className="hire-button-text absolute top-0 left-0">[ Hire Us ]</div>
-                </button>
+                <AnimatedButton text="[ Hire Us ]" className='hire'/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 my-8">
                 {projects.map((project, index) => (
