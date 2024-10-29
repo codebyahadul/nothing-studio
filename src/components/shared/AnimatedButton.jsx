@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const AnimatedButton = ({ text, className, onHoverEffect = true }) => {
+const AnimatedButton = ({ size = 'text-sm md:text-xl', text, name, onHoverEffect = true, onClick }) => {
+    const buttonRef = useRef(null);
+
     useEffect(() => {
-        const button = document.querySelector(`.${className}`);
-        console.log(button);
-        
+        const button = buttonRef.current;
         const animatedText = button.querySelector(".animated-text");
 
         if (onHoverEffect) {
@@ -15,6 +16,7 @@ const AnimatedButton = ({ text, className, onHoverEffect = true }) => {
                     { y: "100%", opacity: 0, rotation: 10 },
                     { y: "0%", opacity: 1, duration: 0.3, rotation: 0, zIndex: 80, color: '#d9d9d9cc' }
                 );
+                gsap.to('.static-text', {opacity: 0})
                 gsap.to('.cursor', { scale: 6, duration: 0.3, opacity: 0.5 });
             };
 
@@ -35,12 +37,16 @@ const AnimatedButton = ({ text, className, onHoverEffect = true }) => {
                 button.removeEventListener("mouseleave", handleMouseLeave);
             };
         }
-    }, [className, onHoverEffect]);
+    }, [onHoverEffect]);
 
     return (
-        <button className={`text-sm md:text-xl text-[#d9d9d9] uppercase relative overflow-hidden ${className}`}>
-            <div className="overlay absolute w-full h-full bg-transparent z-50"></div>
-            <div className="static-text">{text}</div>
+        <button
+            onClick={onClick}
+            ref={buttonRef}
+            className={`${size} text-[#d9d9d9] uppercase relative overflow-hidden ${name}`}
+        >
+            <div className="absolute w-full h-full bg-transparent z-50"></div>
+            <div className="static-text ">{text}</div>
             <div className="animated-text absolute top-0 left-0">{text}</div>
         </button>
     );

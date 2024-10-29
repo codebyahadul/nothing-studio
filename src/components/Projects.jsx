@@ -40,9 +40,9 @@ const Projects = () => {
 
     return (
         <div className="bg-black p-4 md:p-8">
-            <div className="flex justify-between items-center text-[#d9d9d9]">
+            <div className="flex justify-between items-center text-[#d9d9d9] bg-black">
                 <button className="text-sm md:text-xl uppercase">[ FEATURED PROJECTS ]</button>
-                <AnimatedButton text="[ Hire Us ]" className='hire'/>
+                <AnimatedButton text="[ Hire Us ]" name='hire'/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 my-8">
                 {projects.map((project, index) => (
