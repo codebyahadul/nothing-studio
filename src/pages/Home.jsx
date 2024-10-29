@@ -22,9 +22,9 @@ const Home = () => {
 
     return (
         <>
-            <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-8">
+            <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8">
                 <div className="relative hero-text-container min-h-[calc(100vh-180px)] pt-20">
-                    <div className="text-[152px] leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
+                    <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
                         <div className="overflow-hidden">
                             <span className="hero-title block">NOTHING</span>
                         </div>
@@ -32,8 +32,8 @@ const Home = () => {
                             <span className="hero-title2 block">DESIGN STUDIO</span>
                         </div>
                     </div>
-                    <div className="w-[30%] mt-16 absolute left-[10%] hero-des">
-                        <p className="text-start text-xl"><span className="px-16"></span> We are a creative studio based in Canada, We build solid brands that needs no introduction at all.</p>
+                    <div className="w-full md:w-[30%] mt-8 md:mt-16 absolute left-0 md:left-[10%] hero-des">
+                        <p className="text-start text-sm md:text-xl"><span className="px-4 md:px-16"></span> We are a creative studio based in Canada, We build solid brands that needs no introduction at all.</p>
                     </div>
                 </div>
             </div>

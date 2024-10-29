@@ -38,7 +38,7 @@ const AnimatedButton = ({ text, className, onHoverEffect = true }) => {
     }, [className, onHoverEffect]);
 
     return (
-        <button className={`text-xl text-[#d9d9d9] uppercase relative overflow-hidden ${className}`}>
+        <button className={`text-sm md:text-xl text-[#d9d9d9] uppercase relative overflow-hidden ${className}`}>
             <div className="overlay absolute w-full h-full bg-transparent z-50"></div>
             <div className="static-text">{text}</div>
             <div className="animated-text absolute top-0 left-0">{text}</div>

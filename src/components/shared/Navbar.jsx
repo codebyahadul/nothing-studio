@@ -10,7 +10,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="flex justify-between items-center py-8 px-8 bg-black">
+        <nav className="flex justify-between items-center py-4 md:py-8 px-4 md:px-8 bg-black">
              <AnimatedButton text="[ NOTHING STUDIO ]" className="logo" />
              <AnimatedButton text="[ Menu ]" className="menu" />
         </nav>

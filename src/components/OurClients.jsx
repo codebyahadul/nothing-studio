@@ -13,21 +13,21 @@ const clients = [
 
 const OurClients = () => {
     return (
-        <div className="p-8 bg-black text-[#d9d9d9]">
+        <div className="p-4 md:p-8 bg-black text-[#d9d9d9]">
             <div className="flex">
-                <div className="min-w-[25%]"></div>
+                <div className="min-w-[25%] hidden md:block"></div>
                 <div>
-                    <div className='py-8 text-xl font-normal'>
-                        <h1 className="w-5/12">We cherish partnerships we have cultivated, each one a testament to commitment.</h1>
+                    <div className='py-4 md:py-8 text-lg md:text-xl font-normal'>
+                        <h1 className="w-full md:w-5/12">We cherish partnerships we have cultivated, each one a testament to commitment.</h1>
                     </div>
-                    <h1 className="text-xl font-normal my-8 pb-10">[ OUR Clients ]</h1>
+                    <h1 className="text-xl font-normal my-8 pb-5 md:pb-10">[ OUR Clients ]</h1>
                 </div>
             </div>
             <div className="marquee overflow-hidden whitespace-nowrap bg-gray-800">
                 <div className="marquee-inner inline-block animate-marquee">
                     {clients.map(item => (
-                        <div key={item.id} className="inline-block mx-8"> {/* Tailwind classes for spacing */}
-                            <img src={item.image} alt={`Client ${item.id}`} className="h-16" /> {/* Set image height */}
+                        <div key={item.id} className="inline-block mx-8"> 
+                            <img src={item.image} alt={`Client ${item.id}`} className="h-16" />
                         </div>
                     ))}
                 </div>
