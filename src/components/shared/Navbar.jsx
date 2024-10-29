@@ -35,12 +35,12 @@ const Navbar = () => {
                             <AnimatedButton text='Contacts' size="text-5xl md:text-[116px] font-extrabold" name='contact' intialColor='#464646' link={'/contact'}/>
                         </div>
                     </div>
-                    <div className="flex justify-between items-center px-4 md:px-8 py-1 md:py-2">
+                    <div className="flex flex-col md:flex-row justify-start md:justify-between  items-start md:items-center px-4 md:px-8 py-1 md:py-2 gap-6 md:gap-0">
                         <div className="text-start text-[#d9d9d9] ">
                             <AnimatedButton text="HELLO@NOTHING.STUDIO" name='email2' />
                             <h1 >+44 12 34 56 78</h1>
                         </div>
-                        <div className="text-[#d9d9d9] text-sm md:text-xl flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-8 *:uppercase">
+                        <div className="text-[#d9d9d9] text-sm md:text-xl flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-8 *:uppercase">
                             <AnimatedButton text="Linkedin" name='linkedin' link={'/linkedin'} />
                             <AnimatedButton text="Twitter" name='twitter' link={'/twitter'}/>
                             <AnimatedButton text="Instagram" name='instagram' link={'/instagram'} />
