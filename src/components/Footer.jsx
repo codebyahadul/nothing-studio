@@ -19,7 +19,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className=" w-full">
-                <h1 className="text-[20.37rem] w-full font-bold uppercase text-center text-[#212121]">Noting</h1>
+                <h1 className="text-[20.37rem] w-full font-bold uppercase text-center text-[#212121]">Nothing</h1>
             </div>
             <div className="flex justify-between items-center">
                 <div className="text-[#d9d9d9] text-xl flex items-center gap-8 *:uppercase">
