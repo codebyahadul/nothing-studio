@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import img1 from '../assets/img1.avif';
 import img2 from '../assets/img2.avif';
 import img3 from '../assets/img3.avif';
@@ -7,6 +7,7 @@ import img4 from '../assets/img4.avif';
 import img5 from '../assets/img5.avif';
 import Navbar from "../components/shared/Navbar";
 import Footer from "../components/Footer";
+import gsap from "gsap";
 const Main = () => {
     const [loading, setLoading] = useState(true);
     const [visibleImageIndex, setVisibleImageIndex] = useState(0);
@@ -25,11 +26,15 @@ const Main = () => {
                 }
             });
         }, 500);
-
+        const root = document.getElementById('root')
+        root.addEventListener('mousemove', (dets) => {
+            gsap.to('.cursor', { x: dets.x, y: dets.y, duration: .75 })
+        })
         return () => clearInterval(interval);
     }, [images.length]);
     return (
         <>
+            <div className='cursor size-4 bg-red-600 rounded-full z-40 fixed'></div>
             {loading ? (
                 <div className="flex items-center justify-center h-screen bg-black text-white text-xl">
                     <div className="relative w-full h-full flex items-center justify-center">

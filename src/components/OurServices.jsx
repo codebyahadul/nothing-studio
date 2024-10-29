@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const OurServices = () => {
     useEffect(() => {
         const services = [".service1", ".service2", ".service3", ".service4"];
-        services.forEach((service, index) => {
+        services.forEach((service) => {
             gsap.fromTo(service, 
                 { opacity: 0, y: 100 }, 
                 { 
@@ -97,7 +97,7 @@ const OurServices = () => {
             </div>
             <div className="relative w-full overflow-hidden rounded-xl max-h-[400px] flex items-center">
                 <video
-                    className="w-full h-full object-cover z-50"
+                    className="w-full h-full object-cover z-20"
                     loop
                     preload="auto"
                     autoPlay

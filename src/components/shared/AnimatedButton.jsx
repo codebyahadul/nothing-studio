@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 // AnimatedButton.jsx
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 
 const AnimatedButton = ({ text }) => {
@@ -19,7 +20,7 @@ const AnimatedButton = ({ text }) => {
             gsap.fromTo(
                 button.querySelector(".animated-text"),
                 { y: "-100%", opacity: 1 },
-                { y: "-0%", opacity: 0, duration: 0.3 }
+                { y: "0%", opacity: 0, duration: 0.3 }
             );
         });
     }, [text]);
