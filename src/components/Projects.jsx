@@ -50,7 +50,7 @@ const Projects = () => {
                         key={index}
                         className="group project-image relative overflow-hidden rounded-3xl h-[230px] md:h-[450px] cursor-pointer transition-all duration-300"
                     >
-                        <div className='w-full h-full absolute bg-transparent overlay z-50'></div>
+                        <div className='w-full h-full absolute bg-transparent z-50'></div>
                         <img
                             src={project.img}
                             alt={`project-${index + 1}`}

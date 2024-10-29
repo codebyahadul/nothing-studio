@@ -1,3 +1,5 @@
+import AnimatedButton from "./shared/AnimatedButton";
+
 const Footer = () => {
     return (
         <div className="bg-[#0d0d0d] px-4 md:px-8 pt-12 pb-8">
@@ -13,7 +15,7 @@ const Footer = () => {
                 </div>
                 <div className="flex-1 flex justify-normal md:justify-end">
                     <div className="text-start">
-                        <button>HELLO@NOTHING.STUDIO</button>
+                        <AnimatedButton text="HELLO@NOTHING.STUDIO" name='email' />
                         <h1>+44 12 34 56 78</h1>
                     </div>
                 </div>
@@ -27,9 +29,9 @@ const Footer = () => {
                     <button>Cookie Policy</button>
                 </div>
                 <div className="text-[#d9d9d9] text-sm md:text-xl flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-8 *:uppercase">
-                    <button>Linkedin</button>
-                    <button>Twitter</button>
-                    <button>Instagram</button>
+                    <AnimatedButton text="Linkedin" name='linkedin' />
+                    <AnimatedButton text="Twitter" name='twitter' />
+                    <AnimatedButton text="Instagram" name='instagram' />
                 </div>
             </div>
         </div>
