@@ -20,7 +20,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full my-2 md:my-0">
+            <div className="w-full my-2 md:my-12">
                 <h1 className="text-6xl md:text-[20.37rem] w-full font-bold uppercase text-start md:text-center text-[#212121]">Nothing</h1>
             </div>
             <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between items-start md:items-center">

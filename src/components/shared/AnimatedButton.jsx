@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
-const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, onHoverEffect = true, onClick }) => {
+const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, onHoverEffect = true, onClick, link }) => {
     const buttonRef = useRef(null);
 
     useEffect(() => {
         const button = buttonRef.current;
+        
         const animatedText = button.querySelector(".animated-text");
         if (onHoverEffect) {
             const handleMouseEnter = () => {
-                console.log('entered', name);
+                console.log(name);
                 gsap.fromTo(
                     animatedText,
                     { y: "100%", opacity: 0, rotation: 10 },
@@ -39,7 +41,7 @@ const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, o
     }, [onHoverEffect]);
 
     return (
-        <button
+        <Link to={link}
             onClick={onClick}
             ref={buttonRef}
             className={`${size} ${intialColor ? `text-neutral-700`: 'text-[#d9d9d9]'} uppercase relative overflow-hidden ${name} w-fit`}
@@ -47,7 +49,7 @@ const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, o
             <div className="absolute w-full h-full bg-transparent z-50"></div>
             <div className="static-text opacity-0">{text}</div>
             <div className="animated-text absolute top-0 left-0 opacity-100">{text}</div>
-        </button>
+        </Link>
     );
 };
 
