@@ -155,7 +155,7 @@ const OurServices = () => {
                     muted
                     src={Vd}
                 />
-                <div className="text-white text-2xl font-semibold absolute z-50 top-[50%] left-[25%]">
+                <div className="text-white text-2xl font-semibold absolute z-20 top-[50%] left-[25%]">
                     <h1>Pure Design,<br /> NOTHING else!</h1>
                 </div>
             </div>

@@ -40,16 +40,16 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="bg-black p-4 md:p-8 z-50">
+        <div className="bg-black p-4 md:p-8 z-50 project">
             <div className="flex justify-between items-center text-[#d9d9d9] bg-black">
                 <button className="text-sm md:text-xl uppercase">[ FEATURED PROJECTS ]</button>
                 <AnimatedButton text="[ Hire Us ]" name='hire'/>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 my-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 my-8 image-container">
                 {projects.map((project, index) => (
                     <Link to={`/projects/${project.title}`}
                         key={index}
-                        className="group project-image relative overflow-hidden rounded-3xl h-[230px] md:h-[450px] cursor-pointer transition-all duration-300"
+                        className="group card project-image relative overflow-hidden rounded-3xl h-[230px] md:h-[450px] cursor-pointer transition-all duration-300"
                     >
                         <div className='w-full h-full absolute bg-transparent z-40'></div>
                         <img
