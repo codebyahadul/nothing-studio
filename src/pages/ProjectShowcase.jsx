@@ -31,6 +31,13 @@ const ProjectShowcase = () => {
 
     useEffect(() => {
         window.scroll(0, 0)
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.projectContainer',
+                end: '+=6200',
+                scrub: true,
+            }
+        })
         const tl = gsap.timeline()
         tl.fromTo('.wrapper', { translateY: '0%', }, { translateY: '-100%',  duration: 0.5, display: 'none' })
         tl.fromTo(
@@ -45,23 +52,16 @@ const ProjectShowcase = () => {
                 "-=0.8" 
             )
             .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: '.projectContainer',
-                end: '+=6400',
-                scrub: true,
-            }
-        })
-        const ctl = gsap.timeline({
-            scrollTrigger: {
-                trigger: '.content',
-                start: 'top 90%',
-                end:'top center' ,
-                scrub: true,
-            }
-        })
-        ctl.fromTo('.content-value',{y: 50, opacity: 0,}, {y: 0, opacity: 1, duration: 0.5})
-        ctl.fromTo('.content-des h1',{y: 50, opacity: 0,}, {y: 0, opacity: 1, stagger: 0.5})
+        // const ctl = gsap.timeline({
+        //     scrollTrigger: {
+        //         trigger: '.content',
+        //         start: 'top 90%',
+        //         end:'top center' ,
+        //         scrub: true,
+        //     }
+        // })
+        // ctl.fromTo('.content-value',{y: 50, opacity: 0,}, {y: 0, opacity: 1, duration: 0.5})
+        // ctl.fromTo('.content-des h1',{y: 50, opacity: 0,}, {y: 0, opacity: 1, stagger: 0.5})
     }, [projectName])
     return (
         <div className="bg-black projectContainer">

@@ -6,8 +6,9 @@ import OurServices from "../components/OurServices";
 import OurClients from "../components/OurClients";
 import SplitType from "split-type";
 import Navbar from "../components/shared/Navbar";
+import { useEffect } from "react";
 const Home = () => {
-    useGSAP(() => {
+    useEffect(() => {
         const tl = gsap.timeline()
         tl.fromTo(
             '.hero-title',
@@ -20,7 +21,7 @@ const Home = () => {
                 { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
                 "-=0.8" // Overlap animations slightly
             )
-            .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
+            .fromTo('.hero-des', { opacity: 0, y: 10, },{y: 0, opacity: 1}, "-=0.9")
         const title1 = new SplitType('.hero-title')
         const title2 = new SplitType('.hero-title2')
         document.querySelectorAll('.char').forEach(c => {
@@ -33,7 +34,7 @@ const Home = () => {
         })
 
         // gsap.fromTo('.main', {y: '0'}, {y: '-800'})
-        const finalTl = gsap.timeline({
+       gsap.timeline({
             scrollTrigger: {
                 trigger: '.main',
                 end: '+=4450',
@@ -41,8 +42,7 @@ const Home = () => {
                 markers: true,
             }
         })
-
-    })
+    }, [])
 
     return (
         <div className="main">

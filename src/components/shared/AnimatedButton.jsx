@@ -12,7 +12,6 @@ const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, o
         const animatedText = button.querySelector(".animated-text");
         if (onHoverEffect) {
             const handleMouseEnter = () => {
-                console.log(name);
                 gsap.fromTo(
                     animatedText,
                     { y: "100%", opacity: 0, rotation: 10 },

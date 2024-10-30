@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+// LenisWrapper.jsx
 import Lenis from 'lenis';
 import { useEffect, useRef } from 'react';
 
@@ -6,26 +7,22 @@ const LenisWrapper = ({ children }) => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Set up Lenis for smooth scrolling
     lenisRef.current = new Lenis({
-      duration: 2.5,
-      easing: (t) => 1 - Math.pow(1 - t, 3), 
-      smooth: true, 
-      gestureMultiplier: 1,
-      wheelMultiplier: 1.5, 
-      touchMultiplier: 1.2, 
-      lerp: 0.1, 
+      duration: .5, // Scroll duration in seconds
+      easing: (t) => Math.min(1, 1.5 * t), // Easing function
+      smooth: true, // Enable smooth scrolling
+      orientation: 'vertical', // Scroll orientation
     });
 
     const scroll = (time) => {
-      lenisRef.current.raf(time);
-      requestAnimationFrame(scroll);
+      lenisRef.current.raf(time); // Request Animation Frame
+      requestAnimationFrame(scroll); // Recursive scroll
     };
 
-    requestAnimationFrame(scroll);
+    requestAnimationFrame(scroll); // Start the animation loop
 
     return () => {
-      lenisRef.current.destroy();
+      lenisRef.current.destroy(); // Cleanup on unmount
     };
   }, []);
 
