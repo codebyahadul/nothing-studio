@@ -5,9 +5,9 @@ import img2 from '../assets/img2.avif';
 import img3 from '../assets/img3.avif';
 import img4 from '../assets/img4.avif';
 import img5 from '../assets/img5.avif';
-import Navbar from "../components/shared/Navbar";
 import Footer from "../components/Footer";
 import gsap from "gsap";
+import LenisWrapper from "../components/LenisWrapper";
 const Main = () => {
     const [loading, setLoading] = useState(true);
     const [visibleImageIndex, setVisibleImageIndex] = useState(0);
@@ -52,9 +52,10 @@ const Main = () => {
             ) : (
 
                 <div>
-                    <Navbar />
-                    <Outlet />
-                    <Footer />
+                    <LenisWrapper>
+                        <Outlet />
+                        <Footer />
+                    </LenisWrapper>
                 </div>
             )}
         </>

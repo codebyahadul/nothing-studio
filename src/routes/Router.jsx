@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import Main from "../layouts/Main"
 import Home from "../pages/Home"
 import ErrorPage from "../pages/ErrorPage"
+import ProjectShowcase from "../pages/ProjectShowcase"
 
 export const router = createBrowserRouter([
     {
@@ -12,7 +13,12 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element:<Home />
-            }
+            },
+            {
+                path: '/projects/:projectName',
+                loader: ({ params }) => fetch(`/data.json/${params.id}`), 
+                element: <ProjectShowcase />,
+              },
         ]
     }
 ])

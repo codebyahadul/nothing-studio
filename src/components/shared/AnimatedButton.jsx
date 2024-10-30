@@ -16,7 +16,7 @@ const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, o
                 gsap.fromTo(
                     animatedText,
                     { y: "100%", opacity: 0, rotation: 10 },
-                    { y: "0%", opacity: 1, duration: 0.3, rotation: 0, zIndex: 80, color: intialColor ? '#fff': '#d9d9d9cc' }
+                    { y: "0%", opacity: 1, duration: 0.3, rotation: 0, zIndex: 4, color: intialColor ? '#fff': '#d9d9d9cc' }
                 );
                 gsap.to('.cursor', { scale: 6, duration: 0.3, opacity: 0.5 });
             };
@@ -46,7 +46,7 @@ const AnimatedButton = ({ size = 'text-sm md:text-xl',intialColor, text, name, o
             ref={buttonRef}
             className={`${size} ${intialColor ? `text-neutral-700`: 'text-[#d9d9d9]'} uppercase relative overflow-hidden ${name} w-fit`}
         >
-            <div className="absolute w-full h-full bg-transparent z-50"></div>
+            <div className="absolute w-full h-full bg-transparent z-40"></div>
             <div className="static-text opacity-0">{text}</div>
             <div className="animated-text absolute top-0 left-0 opacity-100">{text}</div>
         </Link>

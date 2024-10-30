@@ -7,14 +7,15 @@ import img5 from '../assets/img5.avif';
 import img6 from '../assets/img6.avif';
 import gsap from 'gsap';
 import AnimatedButton from './shared/AnimatedButton';
+import { Link } from 'react-router-dom';
 
 const projects = [
-    { img: img1, title: '[Ellos Rebranding]' },
-    { img: img2, title: '[Wiley Roots Brewing]' },
-    { img: img3, title: '[Catering]' },
-    { img: img4, title: '[Kinetic Campaign]' },
-    { img: img5, title: '[Desert Flower]' },
-    { img: img6, title: '[Donemate]' }
+    { img: img1, title: 'Ellos Rebranding',  },
+    { img: img2, title: 'Wiley Roots Brewing', link: 'wileyRoots' },
+    { img: img3, title: 'Catering', link: 'catering' },
+    { img: img4, title: 'Kinetic Campaign', link: 'kinetic' },
+    { img: img5, title: 'Desert Flower', link: 'desert' },
+    { img: img6, title: 'Donemate', link: 'donemate' }
 ];
 
 const Projects = () => {
@@ -39,18 +40,18 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="bg-black p-4 md:p-8">
+        <div className="bg-black p-4 md:p-8 z-50">
             <div className="flex justify-between items-center text-[#d9d9d9] bg-black">
                 <button className="text-sm md:text-xl uppercase">[ FEATURED PROJECTS ]</button>
                 <AnimatedButton text="[ Hire Us ]" name='hire'/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 my-8">
                 {projects.map((project, index) => (
-                    <div
+                    <Link to={`/projects/${project.title}`}
                         key={index}
                         className="group project-image relative overflow-hidden rounded-3xl h-[230px] md:h-[450px] cursor-pointer transition-all duration-300"
                     >
-                        <div className='w-full h-full absolute bg-transparent z-50'></div>
+                        <div className='w-full h-full absolute bg-transparent z-40'></div>
                         <img
                             src={project.img}
                             alt={`project-${index + 1}`}
@@ -58,10 +59,10 @@ const Projects = () => {
                         />
                         <div className="absolute bottom-0 left-0 p-3 md:p-6 w-full">
                             <h3 className="text-[#d9d9d9] text-2xl font-semibold uppercase">
-                                {project.title}
+                               [ {project.title}]
                             </h3>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

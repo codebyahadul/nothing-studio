@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Projects from "../components/Projects";
 import OurServices from "../components/OurServices";
 import OurClients from "../components/OurClients";
+import SplitType from "split-type";
+import Navbar from "../components/shared/Navbar";
 const Home = () => {
     useGSAP(() => {
         const tl = gsap.timeline()
@@ -18,12 +21,34 @@ const Home = () => {
                 "-=0.8" // Overlap animations slightly
             )
             .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
+            const title1 = new SplitType ('.hero-title')
+            const title2 = new SplitType ('.hero-title2')
+           document.querySelectorAll('.char').forEach(c => {
+            c.addEventListener('mouseenter', () => {
+                gsap.to('.cursor', { backgroundColor: 'blue',});
+            })
+            c.addEventListener('mouseleave', () => {
+                gsap.to('.cursor', { backgroundColor: 'red' });
+            })
+           })
+
+        // gsap.fromTo('.main', {y: '0'}, {y: '-800'})
+        const finalTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.main',
+                end: '+=4450',
+                scrub: true,
+                markers: true,
+            }
+        })
+            
     })
 
     return (
-        <>
-            <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8">
-                <div className="relative hero-text-container min-h-[calc(100vh-180px)] pt-20">
+        <div className=" main">
+            <Navbar />
+            <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8 -mt-[100px]">
+                <div className="relative hero-text-container min-h-[calc(100vh-85px)] pt-32">
                     <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
                         <div className="overflow-hidden">
                             <span className="hero-title block">NOTHING</span>
@@ -39,8 +64,10 @@ const Home = () => {
             </div>
             <Projects />
             <OurServices />
+            <div id="client">
             <OurClients />
-        </>
+            </div>
+        </div>
     );
 };
 
