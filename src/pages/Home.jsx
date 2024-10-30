@@ -39,7 +39,6 @@ const Home = () => {
                 trigger: '.main',
                 end: '+=4450',
                 scrub: true,
-                markers: true,
             }
         })
     }, [])
