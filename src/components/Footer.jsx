@@ -1,10 +1,8 @@
 import AnimatedButton from "./shared/AnimatedButton";
-import Navbar from "./shared/Navbar";
 const Footer = () => {
     return (
-        <div className="fixed bottom-0 w-full min-h-screen -z-50">
-            <div className="bg-[#0d0d0d] px-4 md:px-8  pb-8">
-                <Navbar />
+        <div className="fixed bottom-0 w-full min-h-screen -mt-[200px]  -z-50">
+            <div className="bg-[#0d0d0d] px-4 md:px-8 pt-[200px] pb-8">
                 <div className="flex flex-col md:flex-row text-[#d9d9d9] gap-5 md:gap-0 text-sm md:text-xl pt-[75px]">
                     <div className="flex-1 flex flex-col md:flex-row gap-5 justify-between">
                         <div className="flex-1">

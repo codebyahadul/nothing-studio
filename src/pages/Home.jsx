@@ -21,7 +21,7 @@ const Home = () => {
                 { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
                 "-=0.8" // Overlap animations slightly
             )
-            .fromTo('.hero-des', { opacity: 0, y: 10, },{y: 0, opacity: 1}, "-=0.9")
+            .fromTo('.hero-des', { opacity: 0, y: 10, }, { y: 0, opacity: 1 }, "-=0.9")
         const title1 = new SplitType('.hero-title')
         const title2 = new SplitType('.hero-title2')
         document.querySelectorAll('.char').forEach(c => {
@@ -33,37 +33,39 @@ const Home = () => {
             })
         })
 
-        // gsap.fromTo('.main', {y: '0'}, {y: '-800'})
-       gsap.timeline({
+        gsap.timeline({
             scrollTrigger: {
                 trigger: '.main',
-                end: '+=4450',
+                start: 'top -30%',
+                end: 'bottom bottom',
                 scrub: true,
             }
-        })
+        }).fromTo('.main', { y: '0%' }, { y: '-20%' })
     }, [])
 
     return (
-        <div className="main">
+        <div className="z-50">
             <Navbar />
-            <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8 -mt-[100px]">
-                <div className="relative hero-text-container min-h-[calc(100vh-85px)] pt-32">
-                    <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
-                        <div className="overflow-hidden">
-                            <span className="hero-title block">NOTHING</span>
+            <div className="main">
+                <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8 -mt-[100px]">
+                    <div className="relative hero-text-container min-h-[calc(100vh-85px)] pt-32">
+                        <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
+                            <div className="overflow-hidden">
+                                <span className="hero-title block">NOTHING</span>
+                            </div>
+                            <div className="overflow-hidden text-nowrap w-full">
+                                <span className="hero-title2 block">DESIGN STUDIO</span>
+                            </div>
                         </div>
-                        <div className="overflow-hidden text-nowrap w-full">
-                            <span className="hero-title2 block">DESIGN STUDIO</span>
+                        <div className="w-full md:w-[30%] mt-8 md:mt-16 absolute left-0 md:left-[10%] hero-des">
+                            <p className="text-start text-sm md:text-xl"><span className="px-4 md:px-16"></span> We are a creative studio based in Canada, We build solid brands that needs no introduction at all.</p>
                         </div>
-                    </div>
-                    <div className="w-full md:w-[30%] mt-8 md:mt-16 absolute left-0 md:left-[10%] hero-des">
-                        <p className="text-start text-sm md:text-xl"><span className="px-4 md:px-16"></span> We are a creative studio based in Canada, We build solid brands that needs no introduction at all.</p>
                     </div>
                 </div>
+                <Projects />
+                <OurServices />
+                <OurClients />
             </div>
-            <Projects />
-            <OurServices />
-            <OurClients />
         </div>
     );
 };

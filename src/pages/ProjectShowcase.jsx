@@ -34,93 +34,86 @@ const ProjectShowcase = () => {
         gsap.timeline({
             scrollTrigger: {
                 trigger: '.projectContainer',
-                end: '+=6200',
+                start: 'top -30%',
+                end: 'bottom bottom',
                 scrub: true,
             }
-        })
+        }).fromTo('.projectContainer', { y: '0%' }, { y: '-20%' })
         const tl = gsap.timeline()
-        tl.fromTo('.wrapper', { translateY: '0%', }, { translateY: '-100%',  duration: 0.5, display: 'none' })
+        tl.fromTo('.wrapper', { translateY: '0%', }, { translateY: '-100%', duration: 0.5, display: 'none' })
         tl.fromTo(
             '.project-title1',
-            { opacity: 0, y: 100 }, 
-            { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" } 
+            { opacity: 0, y: 100 },
+            { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" }
         )
             .fromTo(
                 '.project-title2',
                 { opacity: 0, y: 100 },
                 { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
-                "-=0.8" 
+                "-=0.8"
             )
             .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
-        // const ctl = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: '.content',
-        //         start: 'top 90%',
-        //         end:'top center' ,
-        //         scrub: true,
-        //     }
-        // })
-        // ctl.fromTo('.content-value',{y: 50, opacity: 0,}, {y: 0, opacity: 1, duration: 0.5})
-        // ctl.fromTo('.content-des h1',{y: 50, opacity: 0,}, {y: 0, opacity: 1, stagger: 0.5})
     }, [projectName])
     return (
-        <div className="bg-black projectContainer">
-            <div className="min-h-screen wrapper bg-white/80 fixed w-full"></div>
+        <>
             <Navbar />
-            <div className="px-4 md:px-8 text-white">
-                <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
-                    <div className="overflow-hidden">
-                        <span className="project-title1 block">{projectName.split(" ")[0]}</span>
-                    </div>
-                    <div className="overflow-hidden">
-                        <span className="project-title2 block">{projectName.split(" ")[1]}</span>
-                    </div>
-                </div>
-                <div className="h-[calc(100vh-100px)] my-10">
-                    {selectedImage ? (
-                        <img className="rounded-3xl w-full h-full" src={selectedImage} alt={projectName} />
-                    ) : (
-                        <p>Image not found for this project.</p>
-                    )}
-                </div>
-                <div className="flex  justify-between content">
-                    <div className="flex flex-1 text-[#d9d9d9]">
-                        <h1 className="text-sm md:text-xl uppercase mr-[25%] text-nowrap content-value">[ ABOUT PROJECTS ]</h1>
-                        <div className="flex flex-col gap-10 text-[40px] leading-[48px] content-des">
-                            <h1 className="text-sm md:text-xl uppercase">[ Brand Identity ]</h1>
-                            <h1>We envision a world where wellbeing fundament & everyone is empowered to reach their peak potential.</h1>
-                            <h1>Don't traditional healthcare system to determine your health.</h1>
-                            <h1>Take control your super power.</h1>
+            <div className="bg-black projectContainer z-50 -mt-[200px] pt-[200px]">
+                <div className="min-h-screen wrapper bg-white/80 fixed w-full"></div>
+                <div className="px-4 md:px-8 text-white">
+                    <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
+                        <div className="overflow-hidden">
+                            <span className="project-title1 block">{projectName.split(" ")[0]}</span>
+                        </div>
+                        <div className="overflow-hidden">
+                            <span className="project-title2 block">{projectName.split(" ")[1]}</span>
                         </div>
                     </div>
-                    <div className=" flex justify-end">
-                        <h1 className="text-sm md:text-xl uppercase content-value">[ ABOUT PROJECTS ]</h1>
+                    <div className="h-[calc(100vh-100px)] my-10">
+                        {selectedImage ? (
+                            <img className="rounded-3xl w-full h-full" src={selectedImage} alt={projectName} />
+                        ) : (
+                            <p>Image not found for this project.</p>
+                        )}
                     </div>
+                    <div className="flex  justify-between content">
+                        <div className="flex flex-1 text-[#d9d9d9]">
+                            <h1 className="text-sm md:text-xl uppercase mr-[25%] text-nowrap content-value">[ ABOUT PROJECTS ]</h1>
+                            <div className="flex flex-col gap-10 text-[40px] leading-[48px] content-des">
+                                <h1 className="text-sm md:text-xl uppercase">[ Brand Identity ]</h1>
+                                <h1>We envision a world where wellbeing fundament & everyone is empowered to reach their peak potential.</h1>
+                                <h1>Don't traditional healthcare system to determine your health.</h1>
+                                <h1>Take control your super power.</h1>
+                            </div>
+                        </div>
+                        <div className=" flex justify-end">
+                            <h1 className="text-sm md:text-xl uppercase content-value">[ ABOUT PROJECTS ]</h1>
+                        </div>
+                    </div>
+                    <div className="max-h-screen my-10">
+                        <img className="rounded-3xl w-full max-h-screen" src={allos2} alt="" />
+                    </div>
+                    <div className="flex gap-10 items-center h-[400px]">
+                        <img className="rounded-3xl w-full h-full" src={allos3} alt="" />
+                        <img className="rounded-3xl w-full h-full" src={allos4} alt="" />
+                    </div>
+                    <div className="max-h-screen my-10">
+                        <img className="rounded-3xl w-full max-h-screen" src={allos5} alt="" />
+                    </div>
+                    <div className="flex gap-10 items-center h-[400px]">
+                        <img className="rounded-3xl w-full h-full" src={allos6} alt="" />
+                        <img className="rounded-3xl w-full h-full" src={allos7} alt="" />
+                    </div>
+                    <div className="max-h-screen my-10">
+                        <img className="rounded-3xl w-full max-h-screen" src={allos6} alt="" />
+                    </div>
+                    <div className="flex gap-10 items-center h-[400px]">
+                        <img className="rounded-3xl w-full h-full" src={allos7} alt="" />
+                        <img className="rounded-3xl w-full h-full" src={allos8} alt="" />
+                    </div>
+                    <OurClients />
                 </div>
-                <div className="max-h-screen my-10">
-                    <img className="rounded-3xl w-full max-h-screen" src={allos2} alt="" />
-                </div>
-                <div className="flex gap-10 items-center h-[400px]">
-                    <img className="rounded-3xl w-full h-full" src={allos3} alt="" />
-                    <img className="rounded-3xl w-full h-full" src={allos4} alt="" />
-                </div>
-                <div className="max-h-screen my-10">
-                    <img className="rounded-3xl w-full max-h-screen" src={allos5} alt="" />
-                </div>
-                <div className="flex gap-10 items-center h-[400px]">
-                    <img className="rounded-3xl w-full h-full" src={allos6} alt="" />
-                    <img className="rounded-3xl w-full h-full" src={allos7} alt="" />
-                </div>
-                <div className="max-h-screen my-10">
-                    <img className="rounded-3xl w-full max-h-screen" src={allos6} alt="" />
-                </div>
-                <div className="flex gap-10 items-center h-[400px]">
-                    <img className="rounded-3xl w-full h-full" src={allos7} alt="" />
-                    <img className="rounded-3xl w-full h-full" src={allos8} alt="" />
-                </div>
-                <OurClients />
             </div>
-        </div>
+        </>
     );
 };
 

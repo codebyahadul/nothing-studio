@@ -19,25 +19,25 @@ const projects = [
 ];
 
 const Projects = () => {
-    useEffect(() => {
-        const projectImages = document.querySelectorAll(".project-image");
-        projectImages.forEach((img) => {
-            img.addEventListener("mouseenter", () => {
-                gsap.to('.cursor', { scale: 5, duration: 0.3, opacity: 0.5 });
-            });
+    // useEffect(() => {
+    //     const projectImages = document.querySelectorAll(".project-image");
+    //     projectImages.forEach((img) => {
+    //         img.addEventListener("mouseenter", () => {
+    //             gsap.to('.cursor', { scale: 5, duration: 0.3, opacity: 0.5 });
+    //         });
 
-            img.addEventListener("mouseleave", () => {
-                gsap.to('.cursor', { scale: 1, duration: 0.3, opacity: 1 });
-            });
-        });
+    //         img.addEventListener("mouseleave", () => {
+    //             gsap.to('.cursor', { scale: 1, duration: 0.3, opacity: 1 });
+    //         });
+    //     });
 
-        return () => {
-            projectImages.forEach((img) => {
-                img.removeEventListener("mouseenter", () => { });
-                img.removeEventListener("mouseleave", () => { });
-            });
-        };
-    }, []);
+    //     return () => {
+    //         projectImages.forEach((img) => {
+    //             img.removeEventListener("mouseenter", () => { });
+    //             img.removeEventListener("mouseleave", () => { });
+    //         });
+    //     };
+    // }, []);
 
     return (
         <div className="bg-black p-4 md:p-8 z-50 project">
@@ -51,7 +51,7 @@ const Projects = () => {
                         key={index}
                         className="group card project-image relative overflow-hidden rounded-3xl h-[230px] md:h-[450px] cursor-pointer transition-all duration-300"
                     >
-                        <div className='w-full h-full absolute bg-transparent z-40'></div>
+                        {/* <div className='w-full h-full absolute bg-transparent z-40'></div> */}
                         <img
                             src={project.img}
                             alt={`project-${index + 1}`}

@@ -8,27 +8,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const OurServices = () => {
     useEffect(() => {
-        const services = [".service1", ".service2", ".service3", ".service4"];
-        services.forEach((service) => {
-            gsap.fromTo(service,
-                { opacity: 0, y: 100 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.5,
-                    scrollTrigger: {
-                        trigger: service,
-                        start: 'top 80%',
-                        end: 'top 60%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.services',
+                start: 'top bottom',
+                end: 'top bottom',
+                scrub: 1.2
+            },
         });
+    
+        tl.fromTo(".service1",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8 }
+        )
+        .fromTo(".service2",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8 },
+            "+=0.3"
+        )
+        .fromTo(".service3",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8 }, 
+            "+=0.3" 
+        )
+        .fromTo(".service4",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8 }, 
+            "+=0.3" 
+        );
+    
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
     }, []);
+    
 
     return (
         <div className="p-4 md:p-8 bg-black text-[#d9d9d9]">
