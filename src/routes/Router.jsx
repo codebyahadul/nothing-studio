@@ -16,7 +16,6 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/projects/:projectName',
-                loader: ({ params }) => fetch(`/data.json/${params.id}`), 
                 element: <ProjectShowcase />,
               },
         ]

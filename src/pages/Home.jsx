@@ -21,16 +21,16 @@ const Home = () => {
                 "-=0.8" // Overlap animations slightly
             )
             .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
-            const title1 = new SplitType ('.hero-title')
-            const title2 = new SplitType ('.hero-title2')
-           document.querySelectorAll('.char').forEach(c => {
+        const title1 = new SplitType('.hero-title')
+        const title2 = new SplitType('.hero-title2')
+        document.querySelectorAll('.char').forEach(c => {
             c.addEventListener('mouseenter', () => {
-                gsap.to('.cursor', { backgroundColor: 'blue',});
+                gsap.to('.cursor', { backgroundColor: 'blue', });
             })
             c.addEventListener('mouseleave', () => {
                 gsap.to('.cursor', { backgroundColor: 'red' });
             })
-           })
+        })
 
         // gsap.fromTo('.main', {y: '0'}, {y: '-800'})
         const finalTl = gsap.timeline({
@@ -41,11 +41,11 @@ const Home = () => {
                 markers: true,
             }
         })
-            
+
     })
 
     return (
-        <div className=" main">
+        <div className="main">
             <Navbar />
             <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8 -mt-[100px]">
                 <div className="relative hero-text-container min-h-[calc(100vh-85px)] pt-32">
@@ -64,9 +64,7 @@ const Home = () => {
             </div>
             <Projects />
             <OurServices />
-            <div id="client">
             <OurClients />
-            </div>
         </div>
     );
 };

@@ -6,9 +6,9 @@ const clients = [
     { id: 5, image: '/img08.svg' },
     { id: 6, image: '/img09.svg' },
     { id: 7, image: '/img10.svg' },
-    { id: 7, image: '/img10.svg' },
-    { id: 7, image: '/img10.svg' },
-    { id: 7, image: '/img10.svg' },
+    { id: 8, image: '/img10.svg' },
+    { id: 9, image: '/img10.svg' },
+    { id: 10, image: '/img10.svg' },
 ];
 
 const OurClients = () => {
