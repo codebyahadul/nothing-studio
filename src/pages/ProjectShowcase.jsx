@@ -1,114 +1,98 @@
+import { useEffect } from "react";
 import Navbar from "../components/shared/Navbar";
+import gsap from "gsap";
+import showcase from '../assets/projects/showcase.avif';
 import allos1 from '../assets/projects/ellos.avif'
-import allos2 from '../assets/projects/ellos2.avif'
-import allos3 from '../assets/projects/ellos3.avif'
-import allos4 from '../assets/projects/ellos4.avif'
-import allos5 from '../assets/projects/ellos5.avif'
-import allos6 from '../assets/projects/ellos6.avif'
-import allos7 from '../assets/projects/ellos7.avif'
-import allos8 from '../assets/projects/ellos8.avif'
-import OurClients from "../components/OurClients";
 import wiling from '../assets/projects/willi.avif'
 import catering from '../assets/projects/catering.avif'
 import kinetic from '../assets/projects/kintic.avif'
 import dessert from '../assets/projects/dessert.avif'
 import donemate from '../assets/projects/donate.avif'
-import { useEffect } from "react";
-import gsap from "gsap";
-import { useParams } from "react-router-dom";
-const projectImages = {
-    'ellos rebranding': allos1,
-    'wiley roots brewing': wiling,
-    'catering': catering,
-    'kinetic campaign': kinetic,
-    'desert flower': dessert,
-    'donemate': donemate,
-};
-const ProjectShowcase = () => {
-    const { projectName } = useParams();
-    const selectedImage = projectImages[projectName.toLocaleLowerCase()] || null;
-    console.log(projectName.toLocaleLowerCase(), selectedImage);
+import { Link } from "react-router-dom";
+import OurClients from "../components/OurClients";
 
+const recentProject = [
+    { img: allos1, title: 'Ellos Rebranding', },
+    { img: wiling, title: 'Wiley Roots Brewing', link: 'wileyRoots' },
+    { img: catering, title: 'Catering', link: 'catering' },
+    { img: kinetic, title: 'Kinetic Campaign', link: 'kinetic' },
+    { img: dessert, title: 'Desert Flower', link: 'desert' },
+    { img: donemate, title: 'Donemate', link: 'donemate' }
+]
+const ProjectShowcase = () => {
     useEffect(() => {
         window.scroll(0, 0)
         gsap.timeline({
             scrollTrigger: {
-                trigger: '.projectContainer',
+                trigger: '.project-showcase-container',
                 start: 'top -30%',
                 end: 'bottom bottom',
                 scrub: true,
             }
-        }).fromTo('.projectContainer', { y: '0%' }, { y: '-20%' })
+        }).fromTo('.project-showcase-container', { y: '0%' }, { y: '-20%' })
         const tl = gsap.timeline()
-        tl.fromTo('.wrapper', { translateY: '0%', }, { translateY: '-100%', duration: 0.5, display: 'none' })
         tl.fromTo(
-            '.project-title1',
+            '.showcase-title1',
             { opacity: 0, y: 100 },
             { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" }
         )
             .fromTo(
-                '.project-title2',
+                '.showcase-title2',
                 { opacity: 0, y: 100 },
                 { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
                 "-=0.8"
             )
-            .from('.hero-des', { opacity: 0, y: 10, }, "-=0.9")
-    }, [projectName])
+        const projectShowcaseImg = document.querySelectorAll(".showcase-image");
+        projectShowcaseImg.forEach((img) => {
+            img.addEventListener("mouseenter", () => {
+                gsap.to('.cursor', { scale: 5, duration: 0.3, opacity: 0.5 });
+            });
+
+            img.addEventListener("mouseleave", () => {
+                gsap.to('.cursor', { scale: 1, duration: 0.3, opacity: 1 });
+            });
+        });
+
+        return () => {
+            projectShowcaseImg.forEach((img) => {
+                img.removeEventListener("mouseenter", () => { });
+                img.removeEventListener("mouseleave", () => { });
+            });
+        };
+    }, [])
     return (
         <>
             <Navbar />
-            <div className="bg-black projectContainer z-50 -mt-[200px] pt-[200px]">
-                <div className="min-h-screen wrapper bg-white/80 fixed w-full"></div>
-                <div className="px-4 md:px-8 text-white">
+            <div className="bg-black project-showcase-container text-white z-50 -mt-[200px] pt-[200px]">
+                <div className="px-4 md:px-8">
                     <div className="text-4xl md:text-[152px] md:leading-[137px] font-extrabold text-center uppercase w-full mx-auto">
                         <div className="overflow-hidden">
-                            <span className="project-title1 block">{projectName.split(" ")[0]}</span>
+                            <span className="showcase-title1 block">ShowCase</span>
                         </div>
                         <div className="overflow-hidden">
-                            <span className="project-title2 block">{projectName.split(" ")[1]}</span>
+                            <span className="showcase-title2 block">Nothing!</span>
                         </div>
                     </div>
-                    <div className="h-[calc(100vh-100px)] my-10">
-                        {selectedImage ? (
-                            <img className="rounded-3xl w-full h-full" src={selectedImage} alt={projectName} />
-                        ) : (
-                            <p>Image not found for this project.</p>
-                        )}
+                    <div className="h-[400px] my-10">
+                        <img className="rounded-3xl w-full h-full" src={showcase} alt='Showcase img' />
                     </div>
-                    <div className="flex  justify-between content">
-                        <div className="flex flex-1 text-[#d9d9d9]">
-                            <h1 className="text-sm md:text-xl uppercase mr-[25%] text-nowrap content-value">[ ABOUT PROJECTS ]</h1>
-                            <div className="flex flex-col gap-10 text-[40px] leading-[48px] content-des">
-                                <h1 className="text-sm md:text-xl uppercase">[ Brand Identity ]</h1>
-                                <h1>We envision a world where wellbeing fundament & everyone is empowered to reach their peak potential.</h1>
-                                <h1>Don't traditional healthcare system to determine your health.</h1>
-                                <h1>Take control your super power.</h1>
-                            </div>
-                        </div>
-                        <div className=" flex justify-end">
-                            <h1 className="text-sm md:text-xl uppercase content-value">[ ABOUT PROJECTS ]</h1>
-                        </div>
+                    <div className="my-10 flex flex-col justify-center items-center gap-10">
+                        <h1 className="text-[40px] leading-[48px] w-full md:w-[40%]">Have a look at our latest projects and see how we create values!</h1>
+                        <h1 className="text-sm md:text-xl uppercase">[ Recent Project ]</h1>
                     </div>
-                    <div className="max-h-screen my-10">
-                        <img className="rounded-3xl w-full max-h-screen" src={allos2} alt="" />
-                    </div>
-                    <div className="flex gap-10 items-center h-[400px]">
-                        <img className="rounded-3xl w-full h-full" src={allos3} alt="" />
-                        <img className="rounded-3xl w-full h-full" src={allos4} alt="" />
-                    </div>
-                    <div className="max-h-screen my-10">
-                        <img className="rounded-3xl w-full max-h-screen" src={allos5} alt="" />
-                    </div>
-                    <div className="flex gap-10 items-center h-[400px]">
-                        <img className="rounded-3xl w-full h-full" src={allos6} alt="" />
-                        <img className="rounded-3xl w-full h-full" src={allos7} alt="" />
-                    </div>
-                    <div className="max-h-screen my-10">
-                        <img className="rounded-3xl w-full max-h-screen" src={allos6} alt="" />
-                    </div>
-                    <div className="flex gap-10 items-center h-[400px]">
-                        <img className="rounded-3xl w-full h-full" src={allos7} alt="" />
-                        <img className="rounded-3xl w-full h-full" src={allos8} alt="" />
+                    <div className="flex flex-col my-10 gap-10">
+                        {
+                            recentProject.map(p => (
+                                <Link to={`/projects/${p.title}`} key={p.title} className="md:h-[400px] relative showcase-image">
+                                    <img className="rounded-3xl w-full h-full" src={p.img} alt='Showcase img' />
+                                    <div className="absolute bottom-0 left-0 p-3 md:p-6 w-full">
+                                        <h3 className="text-[#d9d9d9] text-2xl md:text-5xl font-semibold uppercase">
+                                            [ {p.title}]
+                                        </h3>
+                                    </div>
+                                </Link>
+                            ))
+                        }
                     </div>
                     <OurClients />
                 </div>

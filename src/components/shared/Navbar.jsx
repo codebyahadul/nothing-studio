@@ -23,8 +23,8 @@ const Navbar = () => {
 
             </nav>
             {
-                toggle && <div className={`min-h-screen bg-black navbar-wrapper -mt-[92px] fixed z-30 w-full h-full`}>
-                    <nav className="flex justify-between items-center py-4 md:py-8 px-4 md:px-8 bg-transparent sticky top-0" >
+                toggle && <div className={`min-h-screen bg-black navbar-wrapper pt-[70px] md:pt-0 -mt-[60px] md:-mt-[92px] fixed z-30 w-full h-full`}>
+                    <nav className="hidden md:flex justify-between items-center py-4 md:py-8 px-4 md:px-8 bg-transparent sticky top-0" >
                         <AnimatedButton text="[ NOTHING STUDIO ]" name="logo" link={'/'} />
                         <AnimatedButton onClick={() => {
                             setToggle(!toggle)
@@ -36,7 +36,7 @@ const Navbar = () => {
                         <HoverImage src={img} alt="Image" />
                         <div className="flex flex-col px-4 md:px-0 z-50">
                             <AnimatedButton text='Home' size="text-5xl md:text-[116px] font-extrabold" name="home" intialColor='#464646' link={'/'} />
-                            <AnimatedButton text='Showcase' size="text-5xl md:text-[116px] font-extrabold" name='showcase' intialColor='#464646' link={'/showcase'} />
+                            <AnimatedButton text='Showcase' size="text-5xl md:text-[116px] font-extrabold" name='showcase' intialColor='#464646' link={'/projectShowcase'} />
                             <AnimatedButton text='Carrier' size="text-5xl md:text-[116px] font-extrabold" name='carrier' intialColor='#464646' link={'/carrier'} />
                             <AnimatedButton text='About' size="text-5xl md:text-[116px] font-extrabold" name='about' intialColor='#464646' link={'/about'} />
                             <AnimatedButton text='Contacts' size="text-5xl md:text-[116px] font-extrabold" name='contact' intialColor='#464646' link={'/contact'} />
