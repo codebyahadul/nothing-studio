@@ -38,7 +38,7 @@ const ProjectDescription = () => {
                 end: 'bottom bottom',
                 scrub: true,
             }
-        }).fromTo('.projectContainer', { y: '0%' }, { y: '-20%' })
+        }).fromTo('.projectContainer', { y: '0%' }, { y: '-20%' }).to('.footer', {zIndex: 4})
         const tl = gsap.timeline()
         tl.fromTo('.wrapper', { translateY: '0%', }, { translateY: '-100%', duration: 0.5, display: 'none' })
         tl.fromTo(

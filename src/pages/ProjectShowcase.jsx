@@ -29,7 +29,7 @@ const ProjectShowcase = () => {
                 end: 'bottom bottom',
                 scrub: true,
             }
-        }).fromTo('.project-showcase-container', { y: '0%' }, { y: '-20%' })
+        }).fromTo('.project-showcase-container', { y: '0%' }, { y: '-20%' }).to('.footer', {zIndex: 4})
         const tl = gsap.timeline()
         tl.fromTo(
             '.showcase-title1',

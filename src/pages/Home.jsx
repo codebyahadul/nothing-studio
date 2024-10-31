@@ -40,7 +40,7 @@ const Home = () => {
                 end: 'bottom bottom',
                 scrub: true,
             }
-        }).fromTo('.main', { y: '0%' }, { y: '-20%', })
+        }).fromTo('.main', { y: '0%' }, { y: '-20%', }).to('.footer', {zIndex: 4})
     }, [])
 
     return (
