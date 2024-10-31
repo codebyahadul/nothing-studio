@@ -35,7 +35,7 @@ const ProjectDescription = () => {
             scrollTrigger: {
                 trigger: '.projectContainer',
                 start: 'top -30%',
-                end: 'bottom bottom',
+                end: 'bottom 30%',
                 scrub: true,
             }
         }).fromTo('.projectContainer', { y: '0%' }, { y: '-20%' }).to('.footer', {zIndex: 4})

@@ -37,10 +37,10 @@ const Home = () => {
             scrollTrigger: {
                 trigger: '.main',
                 start: 'top -30%',
-                end: 'bottom bottom',
+                end: 'bottom 30%',
                 scrub: true,
             }
-        }).fromTo('.main', { y: '0%' }, { y: '-20%', }).to('.footer', {zIndex: 4})
+        }).fromTo('.main', { y: '0%' }, { y: '-20%',}).to('.footer', {zIndex: 4})
     }, [])
 
     return (

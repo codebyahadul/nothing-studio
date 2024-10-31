@@ -10,31 +10,32 @@ const OurServices = () => {
     useEffect(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: '.services',
+                trigger: '#services',
                 start: 'top bottom',
                 end: 'top bottom',
-                scrub: 1.2
+                scrub: 2.5,
             },
         });
     
         tl.fromTo(".service1",
             { opacity: 0 },
-            { opacity: 1, duration: 0.8 }
+            { opacity: 1,},
+            "+=0.5"
         )
         .fromTo(".service2",
             { opacity: 0 },
-            { opacity: 1, duration: 0.8 },
-            "+=0.3"
+            { opacity: 1, },
+            "+=0.5"
         )
         .fromTo(".service3",
             { opacity: 0 },
-            { opacity: 1, duration: 0.8 }, 
-            "+=0.3" 
+            { opacity: 1, }, 
+            "+=0.5" 
         )
         .fromTo(".service4",
             { opacity: 0 },
-            { opacity: 1, duration: 0.8 }, 
-            "+=0.3" 
+            { opacity: 1, }, 
+            "+=0.5" 
         );
     
         return () => {
@@ -47,12 +48,12 @@ const OurServices = () => {
         <div className="p-4 md:p-8 bg-black text-[#d9d9d9]">
             <div className="flex">
                 <div className="min-w-[25%] hidden md:block"></div>
-                <div>
+                <div id="services">
                     <div className='py-8 text-sm md:text-xl font-normal'>
                         <h1 className="w-full md:w-5/12">With a blend of creativity and technical prowess, we transform ideas into reality!</h1>
                     </div>
                     <h1 className="text-xl font-normal my-8 pb-2 md:pb-10">[ OUR SERVICES ]</h1>
-                    <div className="space-y-28 services hidden md:block">
+                    <div className="space-y-28 hidden md:block">
                         <div className="flex flex-col md:flex-row w-full">
                             <div className="flex-1 pl-5 border-l flex flex-col justify-between min-h-[300px] service1">
                                 <div>
