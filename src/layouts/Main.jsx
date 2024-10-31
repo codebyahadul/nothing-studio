@@ -34,7 +34,7 @@ const Main = () => {
     }, [images.length]);
     return (
         <>
-            <div className='cursor size-4 bg-red-600 rounded-full z-40 fixed'></div>
+            <div className='cursor pointer-events-none size-4 bg-red-600 rounded-full z-40 fixed'></div>
             {loading ? (
                 <div className="flex items-center justify-center h-screen bg-black text-white text-xl">
                     <div className="relative w-full h-full flex items-center justify-center">

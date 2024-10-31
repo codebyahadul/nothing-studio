@@ -23,7 +23,7 @@ const Navbar = () => {
 
             </nav>
             {
-                toggle && <div className={`min-h-screen bg-black navbar-wrapper -mt-[92px] fixed z-50 w-full h-full`}>
+                toggle && <div className={`min-h-screen bg-black navbar-wrapper -mt-[92px] fixed z-30 w-full h-full`}>
                     <nav className="flex justify-between items-center py-4 md:py-8 px-4 md:px-8 bg-transparent sticky top-0" >
                         <AnimatedButton text="[ NOTHING STUDIO ]" name="logo" link={'/'} />
                         <AnimatedButton onClick={() => {
@@ -34,7 +34,7 @@ const Navbar = () => {
                     </nav>
                     <div className="flex gap-16 -mt-4">
                         <HoverImage src={img} alt="Image" />
-                        <div className="flex flex-col px-4 md:px-0">
+                        <div className="flex flex-col px-4 md:px-0 z-50">
                             <AnimatedButton text='Home' size="text-5xl md:text-[116px] font-extrabold" name="home" intialColor='#464646' link={'/'} />
                             <AnimatedButton text='Showcase' size="text-5xl md:text-[116px] font-extrabold" name='showcase' intialColor='#464646' link={'/showcase'} />
                             <AnimatedButton text='Carrier' size="text-5xl md:text-[116px] font-extrabold" name='carrier' intialColor='#464646' link={'/carrier'} />

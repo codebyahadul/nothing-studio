@@ -40,11 +40,11 @@ const Home = () => {
                 end: 'bottom bottom',
                 scrub: true,
             }
-        }).fromTo('.main', { y: '0%' }, { y: '-20%' })
+        }).fromTo('.main', { y: '0%' }, { y: '-20%', })
     }, [])
 
     return (
-        <div className="z-50">
+        <div>
             <Navbar />
             <div className="main">
                 <div className="flex h-full justify-center items-center text-[#d9d9d9] bg-black px-4 md:px-8 -mt-[100px]">
